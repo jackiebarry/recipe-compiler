@@ -1,0 +1,54 @@
+
+body {
+    background-color: slategray;
+}
+
+h1 {
+    font-family: "Brush Script MT", "Lucinda Console", "Courier New", 'Courier New', Courier, monospace;
+    font-size: 400%;
+}
+
+h2 {
+    font-family: "Brush Script MT", "Lucinda Console", "Courier New", 'Courier New', Courier, monospace;
+    font-size: 300%;
+    color: azure;
+}
+
+form {
+    color:black;
+    font-size: x-large;
+}
+
+#header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px;
+}
+#ingredients {
+display:flex;
+align-items: center;
+padding: 10px;
+justify-content: space-around;
+}
+
+#form {
+    display: flex;
+    align-items: center;
+}
+
+.right {
+    float: right;
+}
+
+img.snapshot {
+    border-width: 5px;
+    border-style: solid;
+    border-color:azure;
+    box-shadow: 10px 10px 15px rgba(0,0,0,4);
+    margin: 10px 20px 40px 30px;
+    -moz-transform: rotate(-5deg);
+    -webkit-transform: rotate(-5deg);
+    -o-transform: rotate(-5deg);
+    -ms-transform: rotate(-5deg);
+}
