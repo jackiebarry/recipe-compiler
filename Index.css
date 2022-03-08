@@ -25,16 +25,12 @@ form {
     flex-direction: column;
     padding: 50px;
 }
-#ingredients {
-display:flex;
-align-items: center;
-padding: 10px;
-justify-content: space-around;
-}
-
 #form {
-    display: flex;
-    align-items: center;
+display:flex;
+-ms-flex-align: center;
+flex-wrap: wrap;
+justify-content: space-evenly;
+padding: 10px;
 }
 
 .right {
