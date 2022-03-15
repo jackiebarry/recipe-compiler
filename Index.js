@@ -62,9 +62,31 @@ let ingredients = [
     }
     let submit = document.createElement('input');
     submit.setAttribute("type", "submit");
-    submit.setAttribute("value", "submit");
+    submit.setAttribute("value", "Confirm");
+    submit.id = 'Confirm';
     form.appendChild(submit);
     };
+
+// window.alert("Hi! Please select your ingredients!");
+
+const input = document.querySelector('input#Confirm');
+function alertInput(){
+    alert('Would you like to continue?');
+}
+input.addEventListener("click", alertInput, false);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // let ingredients = [
 //     {
