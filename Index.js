@@ -75,7 +75,16 @@ function alertInput(){
 }
 input.addEventListener("click", alertInput, false);
 
+async function sendApiRequest () {
+    let App_ID = "adeda542"
+    let API_KEY = "92f5597b299396e6134f2ef3942df3d4"
+    let response = await fetch ('');
+    console.log(response)
+}
 
+function useApiData(data){
+    
+} 
 
 
 
