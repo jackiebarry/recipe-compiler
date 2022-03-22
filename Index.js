@@ -70,20 +70,21 @@ let ingredients = [
 // window.alert("Hi! Please select your ingredients!");
 
 const input = document.querySelector('input#Confirm');
-function alertInput(){
-    alert('Would you like to continue?');
-}
-input.addEventListener("click", alertInput, false);
 
-async function sendApiRequest () {
-    let App_ID = "adeda542"
+input.addEventListener("click", ()=>{
+    sendApiRequest()
+    console.log("button pressed")
+});
+
+async function sendApiRequest() {
+    let APP_ID = "adeda542"
     let API_KEY = "92f5597b299396e6134f2ef3942df3d4"
-    let response = await fetch ('');
+    let response = await fetch('https://api.edamam.com/search?app_id=$(APP_ID)&app_key=$(API_KEY)&q=chicken');
     console.log(response)
-}
+};
 
 function useApiData(data){
-    
+
 } 
 
 
@@ -218,3 +219,7 @@ function useApiData(data){
 // });
 
 // ingredients.innerHTML = ingredientChoices.join('\n');
+
+//function alertInput(){
+   // alert('Would you like to continue?');
+//
