@@ -1,4 +1,4 @@
-let ingredients = [
+let food = [
     "Chicken",
     "Salmon",
     "Ground Beef",
@@ -45,41 +45,48 @@ let ingredients = [
     "Kidney Beans",
     ];
     
-    createIngredientForm(ingredients);
-    function createIngredientForm(ingredients) {
+    createIngredientForm(food);
+    function createIngredientForm(food) {
     let form = document.getElementById("ingredientSelections"); 
 
-    for ( let i = 0; i < ingredients.length; i++) {
+    for ( let i = 0; i < food.length; i++) {
         let input = document.createElement("input");
         input.setAttribute("type", "checkbox");
-        input.value = ingredients[i];
-        input.id ='checkbox-' + ingredients[i];
+        input.value = food[i];
+        input.id ='checkbox-' + food[i];
         let label = document.createElement('label');
-        label.textContent = ingredients[i];
+        label.textContent = food[i];
         label.setAttribute('for', input.id);
         form.appendChild(input);
         form.appendChild(label);
     }
-    let submit = document.createElement('input');
-    submit.setAttribute("type", "submit");
-    submit.setAttribute("value", "Confirm");
-    submit.id = 'Confirm';
-    form.appendChild(submit);
+    // let submit = document.createElement('button');
+    // submit.setAttribute("type", "submit");
+    // submit.setAttribute("value", "Confirm");
+    // submit.id = 'Confirm';
+    // form.appendChild(submit);
     };
 
 // window.alert("Hi! Please select your ingredients!");
 
-const input = document.querySelector('input#Confirm');
+const button = document.querySelector('button#Confirm');
 
-input.addEventListener("click", ()=>{
+button.addEventListener("click", ()=>{
     sendApiRequest()
     console.log("button pressed")
 });
 
+//let searchButton = document.querySelector("#search")
+
+//searchButton.addEventListener("click", ()=>{
+    //sendApiRequest()
+//     console.log('button clicked')
+// });
+
 async function sendApiRequest() {
-    let APP_ID = "adeda542"
-    let API_KEY = "92f5597b299396e6134f2ef3942df3d4"
-    let response = await fetch('https://api.edamam.com/search?app_id=$(APP_ID)&app_key=$(API_KEY)&q=chicken');
+    let APP_ID = 'adeda542'
+    let API_KEY = '92f5597b299396e6134f2ef3942df3d4'
+    let response = await fetch(`https://api.edamam.com/search?app_id=${APP_ID}&app_key=${API_KEY}&q=pizza`);
     console.log(response)
 };
 
