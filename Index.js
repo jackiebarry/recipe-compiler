@@ -1,4 +1,4 @@
-let food = [
+let ingredients = [
     "Chicken",
     "Salmon",
     "Ground Beef",
@@ -45,53 +45,86 @@ let food = [
     "Kidney Beans",
     ];
     
-    createIngredientForm(food);
-    function createIngredientForm(food) {
+    createIngredientForm(ingredients);
+    function createIngredientForm(ingredients) {
     let form = document.getElementById("ingredientSelections"); 
 
-    for ( let i = 0; i < food.length; i++) {
+    for ( let i = 0; i < ingredients.length; i++) {
         let input = document.createElement("input");
         input.setAttribute("type", "checkbox");
-        input.value = food[i];
-        input.id ='checkbox-' + food[i];
+        input.value = ingredients[i];
+        input.id ='checkbox-' + ingredients[i];
         let label = document.createElement('label');
-        label.textContent = food[i];
+        label.textContent = ingredients[i];
         label.setAttribute('for', input.id);
         form.appendChild(input);
         form.appendChild(label);
     }
-    // let submit = document.createElement('button');
-    // submit.setAttribute("type", "submit");
-    // submit.setAttribute("value", "Confirm");
-    // submit.id = 'Confirm';
-    // form.appendChild(submit);
     };
 
-// window.alert("Hi! Please select your ingredients!");
 
 const button = document.querySelector('button#Confirm');
 
-button.addEventListener("click", ()=>{
-    sendApiRequest()
+button.addEventListener("click", function(e){
+    e.preventDefault();
+    let form = document.querySelector("ingredientSelections");
+    let array = []
+    let checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+
+    for (let i = 0; i < checkboxes.length; i++) {
+    array.push(checkboxes[i].value)
+}
+    console.log(array)
+    sendApiRequest(array)
     console.log("button pressed")
 });
 
-//let searchButton = document.querySelector("#search")
 
-//searchButton.addEventListener("click", ()=>{
-    //sendApiRequest()
-//     console.log('button clicked')
-// });
-
-async function sendApiRequest() {
+async function sendApiRequest(array) {
     let APP_ID = 'adeda542'
-    let API_KEY = '92f5597b299396e6134f2ef3942df3d4'
-    let response = await fetch(`https://api.edamam.com/search?app_id=${APP_ID}&app_key=${API_KEY}&q=pizza`);
+    let API_KEY = '92f5597b299396e6134f2ef3942df3d4' 
+    let choices = array.toString()
+    let response = await fetch(`https://api.edamam.com/search?app_id=${APP_ID}&app_key=${API_KEY}&q=${choices}`);
     console.log(response)
+    let data = await response.json()
+    console.log(data) 
+    useApiData(data)
 };
 
 function useApiData(data){
+document.getElementById("img1").src=data.hits[0].recipe.image 
+document.getElementById("img2").src=data.hits[1].recipe.image
+document.getElementById("img3").src=data.hits[2].recipe.image
 
+document.getElementById("link1").href=data.hits[0].recipe.url 
+document.getElementById("link2").href=data.hits[1].recipe.url
+document.getElementById("link3").href=data.hits[2].recipe.url
+
+document.getElementById("link1").innerHTML=data.hits[0].recipe.label
+document.getElementById("link2").innerHTML=data.hits[1].recipe.label
+document.getElementById("link3").innerHTML=data.hits[2].recipe.label
+
+document.getElementById("carouselExampleControls").classList.remove("hidden")
+// class="d-block w-100" alt="...">
+//         <h5 class="carousel-title">${data.hits[0].recipe.label}</h5>
+//         <a href="${data.hits[0].recipe.url}" class="btn btn-primary">Select</a>
+//       </div>
+//       <div class="carousel-item">
+//         <img src="${data.hits[1].recipe.image}" class="d-block w-100" alt="...">
+//         <h5 class="carousel-title">${data.hits[1].recipe.label}</h5>
+//         <a href="${data.hits[1].recipe.url}" class="btn btn.primary">Select</a>
+//       </div>
+//     </div>
+//     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+//       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+//       <span class="visually-hidden">Previous</span>
+//     </button>
+//     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+//       <span class="carousel-control-next-icon" aria-hidden="true"></span>
+//       <span class="visually-hidden">Next</span>
+//     </button>
+//     </div>
+// `
 } 
 
 
@@ -103,7 +136,14 @@ function useApiData(data){
 
 
 
-
+// {/* <div class="card" style="width: 18rem;">
+// <img src="${data.hits[0].recipe.image}" class="card-img-top" alt="...">
+//     <div class="card-body">
+//     <h5 class="card-title">${data.hits[0].recipe.label}</h5>
+//     <p class="card-text">An option based on the ingredients you selected.</p>
+//     <a href="${data.hits[0].recipe.url}" class="btn btn-primary">Select</a>
+//     </div>
+// </div> */}
 
 // let ingredients = [
 //     {
