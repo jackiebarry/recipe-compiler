@@ -1,11 +1,13 @@
 
 body {
-    background-color: slategray;
+    background-color: rgb(176, 188, 201);
 }
 
 h1 {
     font-family: "Brush Script MT", "Lucinda Console", "Courier New", 'Courier New', Courier, monospace;
     font-size: 400%;
+    border: 5px;
+
 }
 
 h2 {
@@ -14,15 +16,27 @@ h2 {
     color: azure;
 }
 
-form {
+.form {
     color:black;
     font-size: x-large;
 }
+
+/* # is for id
+. is for class */
 
 .hidden {
     visibility: hidden;
 }
 
+a {
+    display: flex;
+    -ms-flex-align: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 10px;
+    color:ivory; 
+    text-decoration: none;
+}
 
 #header {
     display: flex;
@@ -30,6 +44,7 @@ form {
     flex-direction: column;
     padding: 50px;
 }
+
 #form {
 display:flex;
 -ms-flex-align: center;
@@ -38,19 +53,16 @@ justify-content: space-evenly;
 padding: 10px;
 }
 
-.right {
-    float: right;
+
+
+.carousel-inner > .carousel-item > img {
+    display: flex;
+    align-content: center;
+    padding-top: 20px;
+    margin:auto;
 }
 
-img.snapshot {
-    border-width: 5px;
-    border-style: solid;
-    border-color:azure;
-    box-shadow: 10px 10px 15px rgba(0,0,0,4);
-    margin: 10px 20px 40px 30px;
-    -moz-transform: rotate(-5deg);
-    -webkit-transform: rotate(-5deg);
-    -o-transform: rotate(-5deg);
-    -ms-transform: rotate(-5deg);
-}
+
+
+
 
