@@ -1,83 +1,96 @@
-let ingredients = [
-    "Chicken",
-    "Salmon",
-    "Ground Beef",
-    "Steak",
-    "Pork Tenderloin",
-    "Sausages",
-    "Lamb",
-    "Bacon",
-    "Chicken Stock",
-    "Vegetable Stock",
-    "Snap Peas",
-    "Celery",
-    "Cherry Tomatoes",
-    "Spinach",
-    "Red Onion",
-    "Mushroom",
-    "Radish",
-    "Shallots",
-    "Leek",
-    "Sweet Potatoes",
-    "Jalapeno",
-    "Green Peas",
-    "Garlic",
-    "Cucumber",
-    "Zucchini",
-    "Cauliflower",
-    "Carrot",
-    "Broccoli",
-    "Bell Pepper",
-    "Avocado",
-    "Eggplant",
-    "Potatoes",
-    "Eggs",
-    "Bread",
-    "Naan Bread",
-    "Pesto",
-    "Diced Tomatoes",
-    "Spaghetti",
-    "Penne",
-    "Tomato Paste",
-    "Rice",
-    "Black Beans",
-    "Chickpeas",
-    "Kidney Beans",
-    ];
+// let ingredients = [
+//     "Chicken",
+//     "Salmon",
+//     "Ground Beef",
+//     "Steak",
+//     "Pork Tenderloin",
+//     "Sausages",
+//     "Lamb",
+//     "Bacon",
+//     "Snap Peas",
+//     "Celery",
+//     "Cherry Tomatoes",
+//     "Spinach",
+//     "Red Onion",
+//     "Mushroom",
+//     "Radish",
+//     "Shallots",
+//     "Leek",
+//     "Sweet Potatoes",
+//     "Jalapeno",
+//     "Green Peas",
+//     "Garlic",
+//     "Cucumber",
+//     "Zucchini",
+//     "Cauliflower",
+//     "Carrot",
+//     "Broccoli",
+//     "Bell Pepper",
+//     "Avocado",
+//     "Eggplant",
+//     "Potatoes",
+//     "Eggs",
+//     "Bread",
+//     "Naan Bread",
+//     "Pesto",
+//     "Diced Tomatoes",
+//     "Spaghetti",
+//     "Penne",
+//     "Tomato Paste",
+//     "Rice",
+//     "Black Beans",
+//     "Chickpeas",
+//     "Kidney Beans",
+//     ];
     
-    createIngredientForm(ingredients);
-    function createIngredientForm(ingredients) {
-    let form = document.getElementById("ingredientSelections"); 
+//     createIngredientForm(ingredients);
+//     function createIngredientForm(ingredients) {
+//     let form = document.getElementById("ingredientSelections"); 
 
-    for ( let i = 0; i < ingredients.length; i++) {
-        let input = document.createElement("input");
-        input.setAttribute("type", "checkbox");
-        input.value = ingredients[i];
-        input.id ='checkbox-' + ingredients[i];
-        let label = document.createElement('label');
-        label.textContent = ingredients[i];
-        label.setAttribute('for', input.id);
-        form.appendChild(input);
-        form.appendChild(label);
-    }
-    };
+//     for ( let i = 0; i < ingredients.length; i++) {
+//         let input = document.createElement("input");
+//         input.setAttribute("type", "checkbox");
+//         input.value = ingredients[i];
+//         input.id ='checkbox-' + ingredients[i];
+//         let label = document.createElement('label');
+//         label.textContent = ingredients[i];
+//         label.setAttribute('for', input.id);
+//         form.appendChild(input);
+//         form.appendChild(label);
+//     }
+//     };
 
 
 const button = document.querySelector('button#Confirm');
+const searchBar = document.getElementById('search')
 
 button.addEventListener("click", function(e){
     e.preventDefault();
-    let form = document.querySelector("ingredientSelections");
-    let array = []
-    let checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+    let options = document.querySelector(".searchBar");
+    let array = [];
+    let selections = document.querySelectorAll('input[type=text]');
 
-    for (let i = 0; i < checkboxes.length; i++) {
-    array.push(checkboxes[i].value)
-}
-    console.log(array)
+    for (let i = 0; i < selections.length; i++) {
+        array.push(selections[i].value)
+    }
+    console.log(array);
     sendApiRequest(array)
-    console.log("button pressed")
 });
+
+
+// button.addEventListener("click", function(e){
+//     e.preventDefault();
+//     let form = document.querySelector("ingredientSelections");
+//     let array = []
+//     let checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+
+//     for (let i = 0; i < checkboxes.length; i++) {
+//     array.push(checkboxes[i].value)
+// }
+//     console.log(array)
+//     sendApiRequest(array)
+//     console.log("button pressed")
+// });
 
 
 async function sendApiRequest(array) {
@@ -89,29 +102,19 @@ async function sendApiRequest(array) {
     let data = await response.json()
     console.log(data) 
     populateCarousel()
+    createGroceryList()
     useApiData(data)
 };
 
 function useApiData(data){
 const hits = data.hits;
 for ( let i = 0; i < 5; i++) {
-    const elementIndex = (i+1)
-    document.getElementById("img" +elementIndex).src=data.hits[i].recipe.image 
-    document.getElementById("link" +elementIndex).href=data.hits[i].recipe.url 
-    document.getElementById("link" +elementIndex).innerHTML=data.hits[i].recipe.label
+    const elementIndex = (i+1);
+    document.getElementById("img" +elementIndex).src=data.hits[i].recipe.image;
+    document.getElementById("link" +elementIndex).href=data.hits[i].recipe.url;
+    document.getElementById("link" +elementIndex).innerHTML=data.hits[i].recipe.label;
+    document.getElementById("link" +elementIndex).innerHTML=data.hits[i].recipe.ingredientLines;
 }
-
-// document.getElementById("img1").src=data.hits[0].recipe.image 
-// document.getElementById("img2").src=data.hits[1].recipe.image
-// document.getElementById("img3").src=data.hits[2].recipe.image
-
-// document.getElementById("link1").href=data.hits[0].recipe.url 
-// document.getElementById("link2").href=data.hits[1].recipe.url
-// document.getElementById("link3").href=data.hits[2].recipe.url
-
-// document.getElementById("link1").innerHTML=data.hits[0].recipe.label
-// document.getElementById("link2").innerHTML=data.hits[1].recipe.label
-// document.getElementById("link3").innerHTML=data.hits[2].recipe.label
 
 document.getElementById("carousel").classList.remove("hidden")
 } 
@@ -130,6 +133,7 @@ function populateCarousel(){
         let link = document.createElement("a");
         link.setAttribute('id', "link" +elementIndex);
         link.setAttribute('target', "_blank");
+
         carousel.appendChild(image);
         carousel.appendChild(link);
         carouselInner = document.querySelector(".carousel-inner")
@@ -138,15 +142,16 @@ function populateCarousel(){
 }
 
 
-
-// function useApiData(data) {
-//     document.querySelector("a href=")
-//     link.addEventListener("click", function(groceryList){
-//         array = [ingredientLines]
-//     })
-// }
-
-
+function createGroceryList(){
+    for ( let i = 0; i < 5; i++) {
+        const elementIndex = (i+1);
+    let groceries = document.createElement("ul");
+    groceries.classList.add("grocery-list");
+    groceries.setAttribute('id', "link" +elementIndex);
+    groceryList = document.querySelector(".grocery-list")
+    groceryList.appendChild(groceries);
+    };
+}
 
 
 
