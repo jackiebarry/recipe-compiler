@@ -137,6 +137,8 @@ function populateCarousel(){
     }
 }
 
+
+
 // function useApiData(data) {
 //     document.querySelector("a href=")
 //     link.addEventListener("click", function(groceryList){
