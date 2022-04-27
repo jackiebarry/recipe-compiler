@@ -1,70 +1,56 @@
-// let ingredients = [
-//     "Chicken",
-//     "Salmon",
-//     "Ground Beef",
-//     "Steak",
-//     "Pork Tenderloin",
-//     "Sausages",
-//     "Lamb",
-//     "Bacon",
-//     "Snap Peas",
-//     "Celery",
-//     "Cherry Tomatoes",
-//     "Spinach",
-//     "Red Onion",
-//     "Mushroom",
-//     "Radish",
-//     "Shallots",
-//     "Leek",
-//     "Sweet Potatoes",
-//     "Jalapeno",
-//     "Green Peas",
-//     "Garlic",
-//     "Cucumber",
-//     "Zucchini",
-//     "Cauliflower",
-//     "Carrot",
-//     "Broccoli",
-//     "Bell Pepper",
-//     "Avocado",
-//     "Eggplant",
-//     "Potatoes",
-//     "Eggs",
-//     "Bread",
-//     "Naan Bread",
-//     "Pesto",
-//     "Diced Tomatoes",
-//     "Spaghetti",
-//     "Penne",
-//     "Tomato Paste",
-//     "Rice",
-//     "Black Beans",
-//     "Chickpeas",
-//     "Kidney Beans",
-//     ];
+let ingredients = [
+    "Chicken",
+    "Salmon",
+    "Ground Beef",
+    "Steak",
+    "Pork Tenderloin",
+    "Sausages",
+    "Lamb",
+    "Bacon",
+    "Snap Peas",
+    "Celery",
+    "Cherry Tomatoes",
+    "Spinach",
+    "Red Onion",
+    "Mushroom",
+    "Radish",
+    "Shallots",
+    "Leek",
+    "Sweet Potatoes",
+    "Jalapeno",
+    "Green Peas",
+    "Cucumber",
+    "Zucchini",
+    "Cauliflower",
+    "Carrot",
+    "Broccoli",
+    "Bell Pepper",
+    "Avocado",
+    "Eggplant",
+    "Potatoes",
+    "Naan Bread",
+    "Diced Tomatoes",
+    "Spaghetti",
+    "Penne",
+    "Rice",
+    "Black Beans",
+    "Chickpeas",
+    "Kidney Beans",
+    ];
     
-//     createIngredientForm(ingredients);
-//     function createIngredientForm(ingredients) {
-//     let form = document.getElementById("ingredientSelections"); 
+const button2 = document.querySelector('button#random');
 
-//     for ( let i = 0; i < ingredients.length; i++) {
-//         let input = document.createElement("input");
-//         input.setAttribute("type", "checkbox");
-//         input.value = ingredients[i];
-//         input.id ='checkbox-' + ingredients[i];
-//         let label = document.createElement('label');
-//         label.textContent = ingredients[i];
-//         label.setAttribute('for', input.id);
-//         form.appendChild(input);
-//         form.appendChild(label);
-//     }
-//     };
+button2.addEventListener("click", function(e){
+e.preventDefault();
+let randomIngredient = ingredients[Math.floor(Math.random() * ingredients.length)];
+console.log(randomIngredient);
+sendApiRequest2(randomIngredient)
+});
 
-
-const button = document.querySelector('button#Confirm');
+const button1 = document.querySelector('button#confirm');
 const searchBar = document.getElementById('search')
 
-button.addEventListener("click", function(e){
+button1.addEventListener("click", function(e){
     e.preventDefault();
     let options = document.querySelector(".searchBar");
     let array = [];
@@ -74,26 +60,12 @@ button.addEventListener("click", function(e){
         array.push(selections[i].value)
     }
     console.log(array);
-    sendApiRequest(array)
+    sendApiRequest1(array)
 });
 
 
-// button.addEventListener("click", function(e){
-//     e.preventDefault();
-//     let form = document.querySelector("ingredientSelections");
-//     let array = []
-//     let checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
 
-//     for (let i = 0; i < checkboxes.length; i++) {
-//     array.push(checkboxes[i].value)
-// }
-//     console.log(array)
-//     sendApiRequest(array)
-//     console.log("button pressed")
-// });
-
-
-async function sendApiRequest(array) {
+async function sendApiRequest1(array) {
     let APP_ID = 'adeda542'
     let API_KEY = '92f5597b299396e6134f2ef3942df3d4' 
     let choices = array.toString()
@@ -101,8 +73,18 @@ async function sendApiRequest(array) {
     console.log(response)
     let data = await response.json()
     console.log(data) 
-    populateCarousel()
-    createGroceryList()
+    populateCarousel(data)
+    useApiData(data)
+};
+
+async function sendApiRequest2(randomIngredient) {
+    let APP_ID = 'adeda542'
+    let API_KEY = '92f5597b299396e6134f2ef3942df3d4' 
+    let response = await fetch(`https://api.edamam.com/search?app_id=${APP_ID}&app_key=${API_KEY}&q=${randomIngredient}&"mealType=lunch,dinner"&"imageSize=thumbnail"`);
+    console.log(response)
+    let data = await response.json()
+    console.log(data) 
+    populateCarousel(data)
     useApiData(data)
 };
 
@@ -110,48 +92,68 @@ function useApiData(data){
 const hits = data.hits;
 for ( let i = 0; i < 5; i++) {
     const elementIndex = (i+1);
-    document.getElementById("img" +elementIndex).src=data.hits[i].recipe.image;
     document.getElementById("link" +elementIndex).href=data.hits[i].recipe.url;
     document.getElementById("link" +elementIndex).innerHTML=data.hits[i].recipe.label;
-    document.getElementById("link" +elementIndex).innerHTML=data.hits[i].recipe.ingredientLines;
+    document.getElementById("img" +elementIndex).src=data.hits[i].recipe.image;
 }
+    document.getElementById("carousel").classList.remove("hidden")
+};
 
-document.getElementById("carousel").classList.remove("hidden")
-} 
-
-function populateCarousel(){
+function populateCarousel(data){
+    let carouselInner = document.querySelector(".carouselInner");
+    if (carouselInner) { 
+        carouselInner.remove();
+    };
+    let lists = document.querySelectorAll(".ul");
+    for (let i = 0; i  < lists.length; i++) { lists[i].remove()};    
     for ( let i = 0; i < 5; i++) {
         const elementIndex = (i+1);
-        let carousel = document.createElement("div");
-        carousel.classList.add("carousel-item");
+        let carouselItem = document.createElement("div");
+        carouselItem.classList.add("carousel-item");
         if (i === 0) {
-            carousel.classList.add("active")
+            carouselItem.classList.add("active")
         }
-        let image = document.createElement("img");
-        image.classList.add("d-block");
-        image.setAttribute('id', "img" +elementIndex);
         let link = document.createElement("a");
         link.setAttribute('id', "link" +elementIndex);
         link.setAttribute('target', "_blank");
-
-        carousel.appendChild(image);
-        carousel.appendChild(link);
-        carouselInner = document.querySelector(".carousel-inner")
-        carouselInner.appendChild(carousel);
+        let image = document.createElement("img");
+        image.classList.add("d-block");
+        image.setAttribute('id', "img" +elementIndex);
+        let list = document.createElement("ul");
+        list.setAttribute('id', "list" +elementIndex);
+        list.classList.add("ul");
+            for (let j = 0; j < data.hits[i].recipe.ingredientLines.length; j++) {
+            let listItem = document.createElement("li");
+            listItem.innerHTML = data.hits[i].recipe.ingredientLines[j]
+            list.appendChild(listItem)
+            };
+        carouselItem.appendChild(link);
+        carouselItem.appendChild(image);
+        carouselItem.appendChild(list);
+        carouselInner = document.createElement("div")
+        carouselInner.classList.add("carousel-inner");
+        carouselInner.appendChild(carouselItem);
+        let carousel = document.getElementById("carousel");
+        carousel.prepend(carouselInner);
     }
 }
 
 
-function createGroceryList(){
-    for ( let i = 0; i < 5; i++) {
-        const elementIndex = (i+1);
-    let groceries = document.createElement("ul");
-    groceries.classList.add("grocery-list");
-    groceries.setAttribute('id', "link" +elementIndex);
-    groceryList = document.querySelector(".grocery-list")
-    groceryList.appendChild(groceries);
-    };
-}
+// function createGroceryList(){
+//     for ( let i = 0; i < 5; i++) {
+//         const elementIndex = (i+1);
+//         document.getElementById("link" +elementIndex).href=data.hits[i].recipe.url;
+//         document.getElementById("link" +elementIndex).innerHTML=data.hits[i].recipe.label;
+//         // document.getElementById("contents" +elementIndex).innerHTML=data.hits[i].recipe.ingredients.food;
+
+
+//     let groceries = document.createElement("ul");
+//     groceries.classList.add("grocery-list");
+//     groceries.setAttribute('id', "contents" +elementIndex);
+//     groceryList = document.querySelector(".grocery-list")
+//     groceryList.appendChild(groceries);
+//     };
+// }
 
 
 

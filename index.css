@@ -1,6 +1,6 @@
 
 body {
-    background-color: rgb(176, 188, 201);
+    background-color:aliceblue;
 }
 
 h1 {
@@ -66,6 +66,12 @@ padding: 10px;
     padding-top: 20px;
     margin:auto;
 }
+
+.carousel-inner > .carousel-item > .ul {
+    -ms-flex-align: center;
+    list-style-type: circle;
+    list-style-position: inside;
+ }
 
 
 
