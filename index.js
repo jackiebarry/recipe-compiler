@@ -96,7 +96,7 @@ for ( let i = 0; i < 5; i++) {
     document.getElementById("link" +elementIndex).innerHTML=data.hits[i].recipe.label;
     document.getElementById("img" +elementIndex).src=data.hits[i].recipe.image;
 }
-    document.getElementById("carousel").classList.remove("hidden")
+    document.getElementById("myCarousel").classList.remove("hidden")
 };
 
 function populateCarousel(data){
@@ -133,8 +133,8 @@ function populateCarousel(data){
         carouselInner = document.createElement("div")
         carouselInner.classList.add("carousel-inner");
         carouselInner.appendChild(carouselItem);
-        let carousel = document.getElementById("carousel");
-        carousel.prepend(carouselInner);
+        let carousel = document.querySelector("#myCarousel")
+        carousel.appendChild(carouselInner);
     }
 }
 
