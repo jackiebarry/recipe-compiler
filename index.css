@@ -16,10 +16,6 @@ h2 {
     color: azure;
 }
 
-.form {
-    color:black;
-    font-size: x-large;
-}
 
 /* # is for id
 . is for class */
@@ -45,14 +41,6 @@ a {
     padding: 50px;
 }
 
-#form {
-display:flex;
--ms-flex-align: center;
-flex-wrap: wrap;
-justify-content: space-evenly;
-padding: 10px;
-}
-
 #search {
     display: flex;
     -ms-flex-align: center;
@@ -67,8 +55,9 @@ padding: 10px;
     margin:auto;
 }
 
-.carousel-inner > .carousel-item > .ul {
-    -ms-flex-align: center;
+.ul {
+    display: block; 
+    align-content: center;   
     list-style-type: circle;
     list-style-position: inside;
  }

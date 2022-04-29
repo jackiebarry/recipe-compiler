@@ -96,7 +96,8 @@ for ( let i = 0; i < 5; i++) {
     document.getElementById("link" +elementIndex).innerHTML=data.hits[i].recipe.label;
     document.getElementById("img" +elementIndex).src=data.hits[i].recipe.image;
 }
-    document.getElementById("myCarousel").classList.remove("hidden")
+    document.getElementById("myCarousel").classList.remove("hidden");
+    document.getElementById("grocery").classList.remove("hidden");
 };
 
 function populateCarousel(data){
@@ -140,23 +141,12 @@ function populateCarousel(data){
     }
 };
 
+const button3 = document.querySelector("button#grocery");
 
+// button3.addEventListener("click", function(e){
+//     e.preventDefault();
 
-// function createGroceryList(){
-//     for ( let i = 0; i < 5; i++) {
-//         const elementIndex = (i+1);
-//         document.getElementById("link" +elementIndex).href=data.hits[i].recipe.url;
-//         document.getElementById("link" +elementIndex).innerHTML=data.hits[i].recipe.label;
-//         // document.getElementById("contents" +elementIndex).innerHTML=data.hits[i].recipe.ingredients.food;
-
-
-//     let groceries = document.createElement("ul");
-//     groceries.classList.add("grocery-list");
-//     groceries.setAttribute('id', "contents" +elementIndex);
-//     groceryList = document.querySelector(".grocery-list")
-//     groceryList.appendChild(groceries);
-//     };
-// }
+// hits[i].recipe.ingredients[k].food
 
 
 
@@ -173,136 +163,4 @@ function populateCarousel(data){
 
 
 
-// {/* <div class="card" style="width: 18rem;">
-// <img src="${data.hits[0].recipe.image}" class="card-img-top" alt="...">
-//     <div class="card-body">
-//     <h5 class="card-title">${data.hits[0].recipe.label}</h5>
-//     <p class="card-text">An option based on the ingredients you selected.</p>
-//     <a href="${data.hits[0].recipe.url}" class="btn btn-primary">Select</a>
-//     </div>
-// </div> */}
 
-// let ingredients = [
-//     {
-//         name: 'Chicken',
-        
-//     },
-//     {
-//         name: 'Salmon',
-    
-//     },
-//     {
-//         name: 'Ground Beef',
-//     },
-//     {
-//         name: 'Pork Tenderloin',
-//     },
-//     {
-//         name: 'Steak',
-//     },
-//     {
-//         name: 'Sausages',
-//     },
-//     {
-//         name: 'Lamb',
-//     },
-//     {
-//         name: 'Chicken Stock',
-//     },
-//     {
-//         name: 'Green Peas',
-//     },
-//     {
-//         name: 'Diced Tomatoes',
-        
-//     },
-//     {
-//         name: 'Sweet Potatoes',
-    
-//     },
-//     {
-//         name: 'Potatoes',
-//     },
-//     {
-//         name: 'Tomatoes',
-//     },
-//     {
-//         name: 'Spinach',
-//     },
-//     {
-//         name: 'Red Onions',
-//     },
-//     {
-//         name: 'Avocado',
-//     },
-//     {
-//         name: 'Cucumbers',
-//     },
-//     {
-//         name: 'Pasta',
-//     }
-//     ];
-
-// const info = document.querySelector(#info);
-// let details = ingredients.map(function(choice){
-//     return '<div class="choice">' + choice.name + '</div>'
-// });
-
-// info.innerHTML = ingredients.join('\n');
-
-// const ingredientOptions = [
-// "Chicken",
-// "Salmon",
-// "Ground Beef",
-// "Steak",
-// "Pork Tenderloin",
-// "Sausages",
-// "Lamb",
-// "Bacon",
-// "Chicken Stock",
-// "Vegetable Stock",
-// "Snap Peas",
-// "Celery",
-// "Cherry Tomatoes",
-// "Spinach",
-// "Red Onion",
-// "Mushroom",
-// "Radish",
-// "Shallots",
-// "Leek",
-// "Sweet Potatoes",
-// "Jalapeno",
-// "Green Peas",
-// "Garlic",
-// "Cucumber",
-// "Zucchini",
-// "Cauliflower",
-// "Carrot",
-// "Broccoli",
-// "Bell Pepper",
-// "Avocado",
-// "Eggplant",
-// "Potatoes",
-// "Eggs",
-// "Bread",
-// "Naan Bread",
-// "Pesto",
-// "Diced Tomatoes",
-// "Spaghetti",
-// "Penne",
-// "Tomato Paste",
-// "Rice",
-// "Black Beans",
-// "Chickpeas",
-// "Kidney Beans",
-// ];
-
-// const ingredients = document.querySelector('#ingredientOptions');
-// let ingredientChoices = ingredients.map(function(item) {
-//     return '<div class ="item">' + item + '</div>'
-// });
-
-// ingredients.innerHTML = ingredientChoices.join('\n');
-
-//function alertInput(){
-   // alert('Would you like to continue?')
