@@ -105,7 +105,10 @@ function populateCarousel(data){
         carouselInner.remove();
     };
     let lists = document.querySelectorAll(".ul");
-    for (let i = 0; i  < lists.length; i++) { lists[i].remove()};    
+    for (let i = 0; i  < lists.length; i++) 
+    if (lists[i]) { 
+        lists[i].remove()
+    };    
     for ( let i = 0; i < 5; i++) {
         const elementIndex = (i+1);
         let carouselItem = document.createElement("div");
@@ -130,13 +133,13 @@ function populateCarousel(data){
         carouselItem.appendChild(link);
         carouselItem.appendChild(image);
         carouselItem.appendChild(list);
-        carouselInner = document.createElement("div")
-        carouselInner.classList.add("carousel-inner");
+        carouselInner = document.querySelector(".carousel-inner");
         carouselInner.appendChild(carouselItem);
         let carousel = document.querySelector("#myCarousel")
         carousel.appendChild(carouselInner);
     }
-}
+};
+
 
 
 // function createGroceryList(){
@@ -302,5 +305,4 @@ function populateCarousel(data){
 // ingredients.innerHTML = ingredientChoices.join('\n');
 
 //function alertInput(){
-   // alert('Would you like to continue?');
-//
+   // alert('Would you like to continue?')
