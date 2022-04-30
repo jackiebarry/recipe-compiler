@@ -70,22 +70,24 @@ async function sendApiRequest1(array) {
     let API_KEY = '92f5597b299396e6134f2ef3942df3d4' 
     let choices = array.toString()
     let response = await fetch(`https://api.edamam.com/search?app_id=${APP_ID}&app_key=${API_KEY}&q=${choices}&"mealType=lunch,dinner"&"imageSize=thumbnail"`);
-    console.log(response)
-    let data = await response.json()
-    console.log(data) 
-    populateCarousel(data)
-    useApiData(data)
+    console.log(response);
+    let data = await response.json();
+    console.log(data);
+    populateCarousel(data);
+    useApiData(data);
+    createGroceryList(data);
 };
 
 async function sendApiRequest2(randomIngredient) {
     let APP_ID = 'adeda542'
     let API_KEY = '92f5597b299396e6134f2ef3942df3d4' 
     let response = await fetch(`https://api.edamam.com/search?app_id=${APP_ID}&app_key=${API_KEY}&q=${randomIngredient}&"mealType=lunch,dinner"&"imageSize=thumbnail"`);
-    console.log(response)
-    let data = await response.json()
-    console.log(data) 
-    populateCarousel(data)
-    useApiData(data)
+    console.log(response);
+    let data = await response.json();
+    console.log(data); 
+    populateCarousel(data);
+    useApiData(data);
+    createGroceryList(data);
 };
 
 function useApiData(data){
@@ -141,14 +143,24 @@ function populateCarousel(data){
     }
 };
 
+function createGroceryList(data){
 const button3 = document.querySelector("button#grocery");
-
-// button3.addEventListener("click", function(e){
-//     e.preventDefault();
-
-// hits[i].recipe.ingredients[k].food
-
-
+button3.addEventListener("click", function(e){
+    e.preventDefault();
+for ( let i = 0; i < 5; i++) {
+const elementIndex = (i+1);
+let groceryList = document.querySelector("#groceryList");
+groceryList.setAttribute('id', "groceryList", +elementIndex);
+groceryList.classList.add("a");
+    for (let k = 0; k < data.hits[i].recipe.ingredients.length; k++) {
+        let groceryListItem = document.createElement("li");
+        groceryListItem.innerHTML = data.hits[i].recipe.ingredients[k];
+        groceryList.appendChild(groceryListItem);
+    }
+    }
+console.log(data)
+});
+};
 
 
 
