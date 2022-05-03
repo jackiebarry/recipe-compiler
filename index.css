@@ -56,8 +56,10 @@ a {
 }
 
 .ul {
-    display: block; 
-    align-content: center;   
+    display: flex; 
+    flex-direction: column;
+   -ms-flex-align: center;
+   margin: 0 auto;
     list-style-type: circle;
     list-style-position: inside;
  }

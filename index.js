@@ -152,12 +152,17 @@ const elementIndex = (i+1);
 let groceryList = document.querySelector("#groceryList");
 groceryList.setAttribute('id', "groceryList", +elementIndex);
 groceryList.classList.add("ul");
-    for (let k = 0; k < data.hits[i].recipe.ingredients.length; k++) {
+    {
         let groceryListItem = document.createElement("li");
-        groceryListItem.innerHTML = data.hits[i].recipe.ingredients[k];
+        groceryListItem.innerHTML = data.hits[i].recipe.ingredients[i].food;
         groceryList.appendChild(groceryListItem);
     }
     }
+let emailedList = document.createElement("a");
+emailedList.setAttribute("id", "email" +elementIndex);
+emailedList.setAttribute("href", `mailto:?subject=GroceryList&body=${body}`);
+let body = groceryList.toString();
+
 console.log(data)
 });
 };
