@@ -151,7 +151,7 @@ for ( let i = 0; i < 5; i++) {
 const elementIndex = (i+1);
 let groceryList = document.querySelector("#groceryList");
 groceryList.setAttribute('id', "groceryList", +elementIndex);
-groceryList.classList.add("a");
+groceryList.classList.add("ul");
     for (let k = 0; k < data.hits[i].recipe.ingredients.length; k++) {
         let groceryListItem = document.createElement("li");
         groceryListItem.innerHTML = data.hits[i].recipe.ingredients[k];
@@ -161,7 +161,6 @@ groceryList.classList.add("a");
 console.log(data)
 });
 };
-
 
 
 
