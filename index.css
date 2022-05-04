@@ -43,10 +43,19 @@ a {
 
 #search {
     display: flex;
-    -ms-flex-align: center;
-    width:100%;
+    align-content: center;
+    margin: auto;
+    width: 70%;
     height: 50px;
 }
+
+#buttons {  
+    padding-top: 10px;
+    text-align: center;
+    margin: auto;
+}
+
+
 
 .carousel-inner > .carousel-item > img {
     display: flex;
