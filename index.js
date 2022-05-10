@@ -147,21 +147,24 @@ function createGroceryList(data){
 const button3 = document.querySelector("button#grocery");
 button3.addEventListener("click", function(e){
     e.preventDefault();
-for ( let i = 0; i < 5; i++) {
-const elementIndex = (i+1);
-let groceryList = document.querySelector("#groceryList");
-groceryList.setAttribute('id', "groceryList", +elementIndex);
-groceryList.classList.add("ul");
-    {
-        let groceryListItem = document.createElement("li");
-        groceryListItem.innerHTML = data.hits[i].recipe.ingredients[i].food;
-        groceryList.appendChild(groceryListItem);
-    }
-    }
+    // for ( let i = 0; i < 5; i++) {
+    //     const elementIndex = (i+1);
+    //     let groceryList = document.createElement("ul");
+    //     groceryList.setAttribute('id', "groceryList", +elementIndex);
+    //         {
+    //             let groceryListItem = document.createElement("li");
+    //             groceryListItem.innerHTML = data.hits[i].recipe.ingredients[i].food;
+    //             groceryList.appendChild(groceryListItem);
+    //         }
+    //         }
+// let body = groceryListItem.toString();
 let emailedList = document.createElement("a");
-emailedList.setAttribute("id", "email" +elementIndex);
-emailedList.setAttribute("href", `mailto:?subject=GroceryList&body=${body}`);
-let body = groceryList.toString();
+emailedList.setAttribute("href", "email");
+emailedList.href = "mailto:jpb243@mun.ca&subject=GroceryList";
+// emailedList.href = `mailto:jpb243@mun.ca&subject=GroceryList&body=${body}`;
+// emailedList.setAttribute("id", "email");
+// emailedList.setAttribute("href", `mailto:?subject=GroceryList&body=${body}`);
+
 
 console.log(data)
 });
