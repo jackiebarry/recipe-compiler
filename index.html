@@ -9,56 +9,124 @@
 
 </head>
 
-<div id="header">
-<h1 class="lowercase">What's For Supper</h1>
-</div>
+<img src="images/foodBanner2.webp" alt="assorted food items on a hardwood background" id="foodBanner">
 
-<body>
-
-<div id="prompt">
-
-</div>
-
-
-<div id="ingredients" class="searchbar">
-    <input type="text" id="search" placeholder="Enter ingredient(s) here." />
-  <div id="buttons">
-    <button type="submit" id="confirm" input type="text">
-    Submit
-</button>
-
-  <button type="submit" id="random">
-      Random Recipe Generator
-  </button>
-  </div>  
-</div>
-
-
-
-<div id="myCarousel" class="carousel slide hidden" data-bs-ride="carousel" data-bs-interval="false">
-    
-    <div class="carousel-inner">
-      
-    </div>
-
-    <button class="carousel-control-prev" id ="previous" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" id="next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Home</button>
+    <button class="nav-link" id="nav-project-tab" data-bs-toggle="tab" data-bs-target="#nav-project" type="button" role="tab" aria-controls="nav-project" aria-selected="false">Project Inspiration</button>
+    <button class="nav-link" id="nav-about-tab" data-bs-toggle="tab" data-bs-target="#nav-about" type="button" role="tab" aria-controls="nav-about" aria-selected="false">All About Me</button>
   </div>
-    
-  <!-- <div id="groceryList" class="grocery-list"> -->
-    <div>
- <button type="submit" id="grocery" class="grocery list hidden">
-   E-mail this Grocery List
- </button>
+</nav>
+
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+    <div id="header">
+      <h1>What's For Supper</h1>
+      </div>
+      
+      <body>
+      
+      <div id="prompt">
+      
+      </div>
+      
+      
+      <div id="ingredients" class="searchbar">
+          <input type="text" id="search" placeholder="Enter ingredient(s) here." />
+        <div id="buttons">
+          <button type="submit" id="confirm" input type="text">
+          Submit
+      </button>
+      
+        <button type="submit" id="random">
+            Random Recipe Generator
+        </button>
+        </div>  
+      </div>
+      
+      
+      
+      <div id="myCarousel" class="carousel slide hidden" data-bs-ride="carousel" data-bs-interval="false">
+          
+          <div class="carousel-inner">
+            
+          </div>
+      
+          <button class="carousel-control-prev" id ="previous" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" id="next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+          
+        <!-- <div id="groceryList" class="grocery-list"> -->
+          <div>
+       <button type="submit" id="grocery" class="grocery list hidden">
+         E-mail this Grocery List
+       </button>
+      </div>
+        <!-- </div> -->
+  </div>
+
+  <div class="tab-pane fade" id="nav-project" role="tabpanel" aria-labelledby="nav-project-tab">
+<div id="header">
+  <h2>Project Inspiration!</h2>
 </div>
-  <!-- </div> -->
+<div id="content">
+    <p>
+        The idea for this project started as a way to create a tracking system of what food I have in my fridge/pantry at home! The idea was to curate a selection of recipes based on what I have left to reduce food waste and trips to the grocery store. 
+    </p>
+
+    <p>
+        The initial plan was to create a checklist of current groceries and use an API to search for recipes based on ingredient selections. I always wanted to have an option for a randomised search for when you may be stuck on what to eat! 
+</p>
+<p>
+        As the project progressed, I opted to switch from the checklists to a search bar to create a more streamlined design. This has certainly been an exercise on exploring design elements and trying to improve my creativity.  
+</p>
+</div>
+
+
+
+  </div>
   
+  <div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
+    <div id="header">
+     <h2> All About Me!</h2>
+    </div>
+        <div id="content">
+
+      <p>
+        My name is Jackie Barry and I grew up in Ottawa, Ontario. Following high school I moved to St. John’s NL to begin my academic adventure at Memorial university. The decision to move to Newfoundland was always an easy one- there’s just something about that ocean breeze that calls to me. 
+</p>
+<p>
+        I’ve spent the last four years teaching in the province. Most of that time has been spent living in Happy Valley- Goose Bay, labrador. It’s been amazing and I have had the opportunity to experience so many adventures! 
+</p>
+<p>
+        Even though I’ve loved my time in Labrador, I decided it was time to start a new journey. I’ve always regretted not pursuing a career in the tech industry and realised that there is no reason why I can’t make that change now. 
+</p>
+<p>
+        I started with the Get Coding program in February and have been learning the basics of HTML, CSS and Vanilla JavaScript to complete my first project! 
+   </p>
+
+</div>
+
+  </div>
+
+</div>
+
+
+<div id="footer" class="uppercase">
+		<a href="https://www.linkedin.com/in/jacqueline-barry-nl/"><img src="images/Linkedin-icon.png" width="64" height="64" alt="Linked In"/></a>
+		<a href="mailto:jacquelinebarry@nlesd.ca"><img src="images/email-icon.png" width="64" height="64" alt="Email"/></a>
+		<a href="https://jackiebarry.github.io/#"><img src="images/Github-icon.png" width="64" height="64" alt="Github"/></a>
+
+
+		<p>Webpage design &#169; 2022 by <a href="mailto:jpb243@mun.ca">Jackie Barry</a> (Newfoundland and Labrador, Canada) </p>
+	</div>
 
 
 

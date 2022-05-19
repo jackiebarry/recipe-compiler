@@ -75,7 +75,7 @@ async function sendApiRequest1(array) {
     console.log(data);
     populateCarousel(data);
     useApiData(data);
-    createGroceryList(data);
+    // createGroceryList(data);
 };
 
 async function sendApiRequest2(randomIngredient) {
@@ -87,7 +87,7 @@ async function sendApiRequest2(randomIngredient) {
     console.log(data); 
     populateCarousel(data);
     useApiData(data);
-    createGroceryList(data);
+    // createGroceryList(data);
 };
 
 function useApiData(data){
@@ -143,7 +143,7 @@ function populateCarousel(data){
     }
 };
 
-function createGroceryList(data){
+// function createGroceryList(data){
 const button3 = document.querySelector("button#grocery");
 button3.addEventListener("click", function(e){
     e.preventDefault();
@@ -159,16 +159,15 @@ button3.addEventListener("click", function(e){
     //         }
 // let body = groceryListItem.toString();
 let emailedList = document.createElement("a");
-emailedList.setAttribute("href", "email");
-emailedList.href = "mailto:jpb243@mun.ca&subject=GroceryList";
+emailedList.href = "mailto:jpb243@mun.ca";
 // emailedList.href = `mailto:jpb243@mun.ca&subject=GroceryList&body=${body}`;
 // emailedList.setAttribute("id", "email");
 // emailedList.setAttribute("href", `mailto:?subject=GroceryList&body=${body}`);
 
 
-console.log(data)
+console.log(emailedList)
 });
-};
+// };
 
 
 

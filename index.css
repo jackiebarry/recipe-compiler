@@ -1,6 +1,6 @@
 
 body {
-    background-color:aliceblue;
+    background-color: white;
 }
 
 h1 {
@@ -13,7 +13,11 @@ h1 {
 h2 {
     font-family: "Brush Script MT", "Lucinda Console", "Courier New", 'Courier New', Courier, monospace;
     font-size: 300%;
-    color: azure;
+    color: black;
+}
+
+p {
+    font-family: 'Courier New', Courier, monospace;
 }
 
 
@@ -34,11 +38,32 @@ a {
     text-decoration: none;
 }
 
+#nav-home-tab {
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#nav-project-tab {
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#nav-about-tab {
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+}
+
 #header {
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding: 50px;
+    padding: 15px;
+}
+
+#foodBanner {
+    width: 100%;
+    height: 550px;
+    align-content: center;
 }
 
 #search {
@@ -46,15 +71,39 @@ a {
     align-content: center;
     margin: auto;
     width: 70%;
-    height: 50px;
+    height: 40px;
+    border-style: double;
+    border-width: 5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
+}
+
+#content {
+    border-width: 5px;
+    border-style: double;
+    margin: 5%;
+    margin-top: auto;
+    padding: 20px;
+
 }
 
 #buttons {  
     padding-top: 10px;
     text-align: center;
     margin: auto;
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+#footer {
+	text-align: center;
+	font-size: 50%;
+	padding: 25px;
+}
+
+#footer > img {
+	margin: 5px;
+	}
 
 
 .carousel-inner > .carousel-item > img {
