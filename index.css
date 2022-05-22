@@ -101,11 +101,12 @@ a {
 
 
 img.snapshot {
-	border-width: 10px;
+	border-width: 5px;
 	border-style: solid;
-	border-color: #ffffff;
+	border-color:black;
 	box-shadow: 10px 10px 15px rgba(0,0,0,0.4);
 	margin: 10px 20px 40px 30px; 
+    transform: rotate(5deg);
 	-moz-transform: rotate(5deg);
 	-webkit-transform: rotate(5deg);
 	-o-transform: rotate(5deg);
