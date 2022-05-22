@@ -78,7 +78,7 @@ a {
     height: 40px;
     border-style: double;
     border-width: 5px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family:'Courier New', Courier, monospace;
     color: black;
 }
 
@@ -96,9 +96,13 @@ a {
     text-align: center;
     margin: auto;
     color: black;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family:'Courier New', Courier, monospace;
 }
 
+.carousel-control-next,
+.carousel-control-prev {
+    filter: invert(100%);
+}
 
 img.snapshot {
 	border-width: 5px;
@@ -145,6 +149,9 @@ img.snapshot {
     text-align: left;
  }
 
+ button#grocery {
+     font-family: 'Courier New', Courier, monospace;
+ }
 
 
 
