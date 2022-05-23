@@ -155,6 +155,20 @@ img.snapshot {
      -webkit-appearance: square-button;
  }
 
+ @media screen and (min-width: 480px) {
+     #search {
+         height: 100px; 
+         width: 70%; 
+        }
+     #foodBanner {
+        width: 100%;
+        height: 550px;
+        align-content: center;
+        }
+    #buttons {
+       width: 70%; 
+    }
+  }
 
 
 
