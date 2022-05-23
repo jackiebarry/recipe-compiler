@@ -159,6 +159,7 @@ img.snapshot {
      #search {
          height: 100px; 
          width: 70%; 
+         margin: auto;
         }
      #foodBanner {
         width: 100%;
