@@ -157,13 +157,14 @@ for (let i = 0; i < 5; i++) {
 if (activeItemTitle == data.hits[i].recipe.label) {
     for (j = 0; j < data.hits[i].recipe.ingredients.length; j ++) {
         foodArray.push(data.hits[i].recipe.ingredients[j].food);
+        foodArray.join( " \r\n");
     };
     console.log(foodArray.join( " \n"));
 };
 };
 let body = foodArray.toString();
         let emailedList = document.createElement("a");
-        emailedList.href = `mailto:?&?subject=GroceryList&body=${body}&Content-type=text/plain`;
+        emailedList.href = `mailto:?&subject=Grocery List!&body=${body}`;
         emailedList.click();
 };
 
