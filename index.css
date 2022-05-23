@@ -97,6 +97,7 @@ a {
     margin: auto;
     color: black;
     font-family:'Courier New', Courier, monospace;
+    -webkit-appearance: none;
 }
 
 .carousel-control-next,
@@ -151,6 +152,7 @@ img.snapshot {
 
  button#grocery {
      font-family: 'Courier New', Courier, monospace;
+     -webkit-appearance: none;
  }
 
 

@@ -75,7 +75,6 @@ async function sendApiRequest1(array) {
     console.log(data);
     populateCarousel(data);
     useApiData(data);
-    createGroceryList(data);
 };
 
 async function sendApiRequest2(randomIngredient) {
@@ -87,7 +86,6 @@ async function sendApiRequest2(randomIngredient) {
     console.log(data); 
     populateCarousel(data);
     useApiData(data);
-    createGroceryList(data);
 };
 
 function useApiData(data){
@@ -140,33 +138,41 @@ function populateCarousel(data){
         carouselInner.appendChild(carouselItem);
         let carousel = document.querySelector("#myCarousel")
         carousel.appendChild(carouselInner);
+        
+        const button3 = document.querySelector("button#grocery");
+        button3.addEventListener("click", function(e){
+            e.preventDefault();
+            console.log(data.hits[i]);
+            createGroceryList(data);
+            
+        });
     }
 };
 
 
-
-
 function createGroceryList(data){
-const button3 = document.querySelector("button#grocery");
-button3.addEventListener("click", function(e){
-    e.preventDefault();
-    for ( let i = 0; i < 5; i++) {
-        const elementIndex = (i+1);
-        let groceryList = document.createElement("ul");
-        groceryList.setAttribute('id', "groceryList", +elementIndex);
-            {
-                let groceryListItem = document.createElement("li");
-                groceryListItem.innerHTML = data.hits[i].recipe.ingredients[i].food;
-                groceryList.appendChild(groceryListItem);
-            }
-        let body = groceryListItem.toString();
-        let emailedList = document.createElement("a");
-        emailedList.href = `mailto:jpb243@mun.ca?subject=GroceryList&body=${body}`;
-        emailedList.click();
-        }
-console.log(emailedList)
-});
+    let activeItemTitle = document.getElementsByClassName("carousel-item active")[0].firstChild.innerHTML;
+    let foodArray = [];
+for (let i = 0; i < 5; i++) {
+if (activeItemTitle == data.hits[i].recipe.label) {
+    for (j = 0; j < data.hits[i].recipe.ingredients.length; j ++) {
+        foodArray.push(data.hits[i].recipe.ingredients[j].food);
+    };
+    console.log(foodArray.join( " \n"));
 };
+};
+let body = foodArray.toString();
+        let emailedList = document.createElement("a");
+        emailedList.href = `mailto:?&?subject=GroceryList&body=${body}&Content-type=text/plain`;
+        emailedList.click();
+};
+
+
+
+
+
+
+
 
 
 
