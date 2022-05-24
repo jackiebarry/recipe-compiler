@@ -91,13 +91,14 @@ a {
 
 }
 
-#buttons {  
+#buttons {
     padding-top: 10px;
+    border-radius: 0;
     text-align: center;
     margin: auto;
     color: black;
     font-family:'Courier New', Courier, monospace;
-    -webkit-appearance:square-button;
+    -webkit-appearance: none;
 }
 
 .carousel-control-next,
@@ -151,8 +152,12 @@ img.snapshot {
  }
 
  button#grocery {
-     font-family: 'Courier New', Courier, monospace;
-     -webkit-appearance: square-button;
+    border-radius: 0;
+    text-align: center;
+    margin: 20px;
+    color: black;
+    font-family:'Courier New', Courier, monospace;
+    -webkit-appearance: none;
  }
 
  @media screen and (max-width: 600px) {
