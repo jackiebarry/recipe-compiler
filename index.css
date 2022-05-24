@@ -155,7 +155,7 @@ img.snapshot {
      -webkit-appearance: square-button;
  }
 
- @media screen and (min-width: 480px) {
+ @media screen and (max-width: 600px) {
      #search {
          height: 100px; 
          width: 70%; 
