@@ -101,6 +101,18 @@ a {
     -webkit-appearance: none;
 }
 
+button#random, button#confirm {
+    background-color:ghostwhite;
+    border-radius: 0;
+    border-style: double;
+    border-width: 5px;
+    text-align: center;
+    margin: auto;
+    color: black;
+    font-family:'Courier New', Courier, monospace;   
+    -webkit-appearance: none;
+}
+
 .carousel-control-next,
 .carousel-control-prev {
     filter: invert(100%);
@@ -152,11 +164,14 @@ img.snapshot {
  }
 
  button#grocery {
+    background-color:ghostwhite;
     border-radius: 0;
+    border-style: double;
+    border-width: 5px;
     text-align: center;
     margin: 20px;
     color: black;
-    font-family:'Courier New', Courier, monospace;
+    font-family:'Courier New', Courier, monospace;   
     -webkit-appearance: none;
  }
 
