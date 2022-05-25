@@ -150,7 +150,7 @@ img.snapshot {
 .carousel-inner > .carousel-item > img {
     display: flex;
     align-content: center;
-    margin:auto;
+    margin: 5px;
 }
 
 .ul {
