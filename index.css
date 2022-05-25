@@ -93,7 +93,6 @@ a {
 }
 
 #buttons {
-
     padding-top: 5px;
     border-radius: 0;
     text-align: center;
@@ -163,6 +162,13 @@ img.snapshot {
     width: fit-content;
     margin: auto;
     text-align: left;
+ }
+
+ #emailGrocery{
+     display: flex;
+     align-content: center;
+     text-align: center;
+     justify-content: center;
  }
 
  button#grocery {

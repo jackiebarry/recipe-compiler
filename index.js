@@ -137,16 +137,14 @@ function populateCarousel(data){
         carouselInner = document.querySelector(".carousel-inner");
         carouselInner.appendChild(carouselItem);
         let carousel = document.querySelector("#myCarousel")
-        carousel.appendChild(carouselInner);
-        
-        const button3 = document.querySelector("button#grocery");
+        carousel.appendChild(carouselInner);     
+    }
+    const button3 = document.querySelector("button#grocery");
         button3.addEventListener("click", function(e){
             e.preventDefault();
-            console.log(data.hits[i]);
             createGroceryList(data);
             
         });
-    }
 };
 
 
@@ -157,8 +155,7 @@ for (let i = 0; i < 5; i++) {
 if (activeItemTitle == data.hits[i].recipe.label) {
     for (j = 0; j < data.hits[i].recipe.ingredients.length; j ++) {
         foodArray.push(data.hits[i].recipe.ingredients[j].food);
-    };
-};
+    };};
 };
 let body = encodeURIComponent(foodArray.join( " \r\n").toString());
         let emailedList = document.createElement("a");
