@@ -74,7 +74,6 @@ a {
     display: flex;
     align-content: center;
     margin: auto;
-    
     width: 70%;
     height: 40px;
     border-style: double;
@@ -89,7 +88,6 @@ a {
     margin: 5%;
     margin-top: auto;
     padding: 20px;
-
 }
 
 #buttons {
@@ -150,7 +148,7 @@ img.snapshot {
 .carousel-inner > .carousel-item > img {
     display: flex;
     align-content: center;
-    margin: 5px;
+    margin: auto;
 }
 
 .ul {
