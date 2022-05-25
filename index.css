@@ -74,7 +74,7 @@ a {
     display: flex;
     align-content: center;
     margin: auto;
-    padding-bottom: 5px;
+    
     width: 70%;
     height: 40px;
     border-style: double;
@@ -150,7 +150,6 @@ img.snapshot {
 .carousel-inner > .carousel-item > img {
     display: flex;
     align-content: center;
-    padding-top: 20px;
     margin:auto;
 }
 
