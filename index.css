@@ -1,22 +1,24 @@
 
-body {
+#body-content {
     background-color: white;
 }
 
-h1 {
+#main-header {
     font-family: "Brush Script MT", "Lucinda Console", "Courier New", 'Courier New', Courier, monospace;
     font-size: 400%;
     border: 5px;
+    text-align: center;
 
 }
 
-h2 {
+#secondary-header {
     font-family: "Brush Script MT", "Lucinda Console", "Courier New", 'Courier New', Courier, monospace;
     font-size: 300%;
     color: black;
+    text-align: center;
 }
 
-p {
+#paragraphs {
     font-family: 'Courier New', Courier, monospace;
 }
 
@@ -32,7 +34,7 @@ p {
     float: right;
 }
 
-a {
+#links {
     display: flex;
     -ms-flex-align: center;
     flex-wrap: wrap;
