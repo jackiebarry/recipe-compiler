@@ -48,9 +48,16 @@ let randomIngredient = ingredients[Math.floor(Math.random() * ingredients.length
 sendApiRequest2(randomIngredient)
 });
 
+
 //the search bar pushes a specified ingredient into the API function
 const confirmButton = document.querySelector('button#confirm');
 const searchBar = document.getElementById('search')
+
+searchBar.addEventListener("keypress", function(enterSearch) {
+    if (enterSearch.key === "Enter") {
+        document.getElementById("confirm").click();
+    };
+});
 
 confirmButton.addEventListener("click", function(e){
     e.preventDefault();
