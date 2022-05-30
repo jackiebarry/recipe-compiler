@@ -71,7 +71,6 @@ async function sendApiRequest1(array) {
     let API_KEY = '92f5597b299396e6134f2ef3942df3d4' 
     let choices = array.toString()
     let response = await fetch(`https://api.edamam.com/search?app_id=${APP_ID}&app_key=${API_KEY}&q=${choices}&"mealType=lunch,dinner"&"imageSize=thumbnail"`);
-    console.log(response);
     let data = await response.json();
     populateCarousel(data);
     useApiData(data);
@@ -102,25 +101,19 @@ for ( let i = 0; i < 5; i++) {
 
 //the following function pulls the data from the API search and populates the carousel with the recipes title & link to the page, an image of the recipe pulled from the page and the ingredients
 function populateCarousel(data){
-    let carouselInner = document.querySelector(".carouselInner");
-    if (carouselInner) { 
-        carouselInner.remove();
-    };
-    let lists = document.querySelectorAll(".ul");
-    for (let i = 0; i  < lists.length; i++) 
-    if (lists[i]) { 
-        lists[i].remove()
-    };    
+    let carouselInner = document.getElementById("carouselInner");
+    while (carouselInner.hasChildNodes()) { 
+        carouselInner.removeChild(carouselInner.firstChild);
+   };   
     for ( let i = 0; i < 5; i++) {
         const elementIndex = (i+1);
         let carouselItem = document.createElement("div");
         carouselItem.classList.add("carousel-item");
         if (i === 0) {
             carouselItem.classList.add("active")
-        }
+        };
         let link = document.createElement("a");
         link.setAttribute('id', "link" +elementIndex);
-        link.setAttribute('id', "links")
         link.setAttribute('target', "_blank");
         let image = document.createElement("img");
         image.classList.add("d-block");
@@ -146,6 +139,7 @@ function populateCarousel(data){
             e.preventDefault();
             createGroceryList(data);
         });
+    
 };
 
 //this function creates a grocery list based on the active carousel item 

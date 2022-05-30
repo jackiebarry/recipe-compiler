@@ -153,6 +153,17 @@ img.snapshot {
     margin: auto;
 }
 
+.carousel-inner >.carousel-item > a {
+    text-align: center;
+    display: flex;
+    -ms-flex-align: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 10px;
+    color:black; 
+    text-decoration: none;
+}
+
 .ul {
     display: flex; 
     flex-direction: column;
