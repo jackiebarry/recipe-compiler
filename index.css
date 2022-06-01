@@ -71,6 +71,9 @@
     height: 550px;
     align-content: center;
 }
+.searchbar {
+    padding-top: 20px;
+}
 
 #search {
     display: flex;
@@ -210,5 +213,44 @@ img.snapshot {
   }
 
 
+  .edgtf-title .edgtf-title-image img {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+.lazyloaded {
+    opacity: 1;
+    transition: opacity 400ms;
+    transition-delay: 0ms;
+}
+.wp-caption, img {
+    max-width: 100%;
+    height: auto;
+}
 
+.image-container {
+position: relative;
+text-align: center;
+color: white;
+}
 
+.bottom-left {
+position: absolute;
+bottom: 8px;
+left: 16px;
+padding: 20px;
+}
+
+.edgtf-title .edgtf-title-holder .edgtf-page-title {
+    text-shadow: 1px 1px 2px rgb(50 50 50);
+}
+.edgtf-title .edgtf-title-holder .edgtf-page-title {
+    color: #ffffff;
+}
+.edgtf-title .edgtf-title-holder .edgtf-page-title {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    text-transform: uppercase;
+    margin: 0;
+}
