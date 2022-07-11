@@ -212,7 +212,10 @@ img.snapshot {
     }
   }
 
-
+.image-container {
+    width: 100%;
+    height: 50%;
+}
   .edgtf-title .edgtf-title-image img {
     position: relative;
     display: block;
@@ -234,23 +237,11 @@ text-align: center;
 color: white;
 }
 
-.bottom-left {
+.centered {
 position: absolute;
-bottom: 8px;
-left: 16px;
-padding: 20px;
-}
-
-.edgtf-title .edgtf-title-holder .edgtf-page-title {
-    text-shadow: 1px 1px 2px rgb(50 50 50);
-}
-.edgtf-title .edgtf-title-holder .edgtf-page-title {
-    color: #ffffff;
-}
-.edgtf-title .edgtf-title-holder .edgtf-page-title {
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-    text-transform: uppercase;
-    margin: 0;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+font-family: 'Courier New', Courier, monospace;
+font-size: 600%;
 }
